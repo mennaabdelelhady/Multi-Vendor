@@ -12,7 +12,7 @@ class DashboardController extends Controller
         $title = 'store';
        
                 
-        return view('dashboard/index',[
+        return view('dashboard')->with([
             'user' =>'Menna',
             'title' => $title
         ]);

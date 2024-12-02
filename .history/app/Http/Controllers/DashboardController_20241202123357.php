@@ -9,12 +9,8 @@ class DashboardController extends Controller
 {
     public function index()
     {
+        $user = 'Menna Mahmoud';
         $title = 'store';
-       
-                
-        return view('dashboard/index',[
-            'user' =>'Menna',
-            'title' => $title
-        ]);
+        return view('dashboard',compact('user','title'));
     }
 }

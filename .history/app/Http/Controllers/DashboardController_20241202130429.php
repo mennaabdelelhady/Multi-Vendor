@@ -12,7 +12,7 @@ class DashboardController extends Controller
         $title = 'store';
        
                 
-        return view('dashboard/index',[
+        return view('index',[
             'user' =>'Menna',
             'title' => $title
         ]);
