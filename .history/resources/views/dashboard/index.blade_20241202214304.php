@@ -75,3 +75,12 @@
 
 @endsection
 
+@push('styles')
+<link rel="stylesheet" href="{{ asset ('dist/css/style.min.css')}}">
+@endpush
+@push('styles')
+<link rel="stylesheet" href="{{ asset ('dist/css/style2.min.css')}}">
+@endpush
+@push('scripts')
+<link rel="stylesheet" href="{{ asset ('dist/css/adminlte.min.css')}}">
+@endpush

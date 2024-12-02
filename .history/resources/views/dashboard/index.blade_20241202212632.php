@@ -3,8 +3,7 @@
 @section('title','Starter Pager')
 
 @section('breadcrumb')
-    @parent
-    <li class="breadcrumb-item"><a href="#">Home</a></li>
+<li class="breadcrumb-item"><a href="#">Home</a></li>
 @endsection
 
 @section('content')
@@ -74,4 +73,3 @@
   
 
 @endsection
-

@@ -75,3 +75,9 @@
 
 @endsection
 
+@push('styles')
+<link rel="stylesheet" href="{{ asset ('dist/css/adminlte.min.css')}}">
+@endpush
+@push('styles')
+<link rel="stylesheet" href="{{ asset ('dist/css/adminlte.min.css')}}">
+@endpush
