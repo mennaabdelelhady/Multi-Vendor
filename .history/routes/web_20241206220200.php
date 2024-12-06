@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\DashboardController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -32,7 +31,7 @@ Route::get('/', function () {
 ->name('dashboard');*/
 
 Route::get('/dashboard',[DashboardController::class,'index'] )
-->middleware(['auth', 'verified'])
+//->middleware(['auth', 'verified'])
 ->name('dashboard');
 
 Route::middleware('auth')->group(function () {
