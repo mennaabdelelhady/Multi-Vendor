@@ -12,7 +12,7 @@ class DashboardController extends Controller
 {
     public function _construct()
     {
-        //$this->middleware(['auth'])->except('index');
+        $this->middleware('auth');
     }
     public function index()
     {

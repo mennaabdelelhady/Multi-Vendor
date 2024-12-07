@@ -209,7 +209,7 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
-         'Auth' => \Illuminate\Support\Facades\Auth::class,
+         'Auth' => \Illuminate\Support\Facade\Auth::class,
          'ExampleClass' => App\Example\ExampleClass::class,
     ])->toArray(),
 

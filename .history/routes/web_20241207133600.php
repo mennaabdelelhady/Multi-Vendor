@@ -3,7 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Foundation\Application;
-use Illuminate\Support\Facades\Route;
+//use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 /*
@@ -30,12 +30,6 @@ Route::get('/', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])
 ->name('dashboard');*/
-
-Route::get('/dash',function(){
-    return Inertia::render('Dashboard');
-    //return view('Dashboard');Dashboard was not found.
-//Are you sure the view exists and is a .blade.php file?
-})->middleware(['auth']);
 
 Route::get('/dashboard',[DashboardController::class,'index'] )
 ->middleware(['auth', 'verified'])

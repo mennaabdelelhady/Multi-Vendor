@@ -32,9 +32,8 @@ Route::get('/', function () {
 ->name('dashboard');*/
 
 Route::get('/dash',function(){
-    return Inertia::render('Dashboard');
-    //return view('Dashboard');Dashboard was not found.
-//Are you sure the view exists and is a .blade.php file?
+    //return Inertia::render('Dashboard');
+    return view('Dashboard');
 })->middleware(['auth']);
 
 Route::get('/dashboard',[DashboardController::class,'index'] )

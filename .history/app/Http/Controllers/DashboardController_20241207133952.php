@@ -10,10 +10,6 @@ use Illuminate\Support\Facades\View;
 
 class DashboardController extends Controller
 {
-    public function _construct()
-    {
-        //$this->middleware(['auth'])->except('index');
-    }
     public function index()
     {
         $title = 'store';
