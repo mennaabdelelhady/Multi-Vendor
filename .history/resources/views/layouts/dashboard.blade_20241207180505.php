@@ -176,12 +176,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         </div>
         <div class="info">
           <a href="#" class="d-block">{{ Auth::user()->name }}</a>
-          <form action="{{ route('logout')}}" method="POST">
-            <input type="hidden" name="_token" value="{{csrf_token() }}">
-            {{ csrf_field() }}
-            @csrf
-            <button type="submit" class="btn btn-sm btn-outline-primary">Logout</button>
-          </form>
+            <a href="{{ route('logout')}}">Logout</a>
         </div>
       </div>
       @endauth
@@ -264,4 +259,3 @@ scratch. This page gets rid of all links and provides the needed markup only.
 @stack('scripts')
 </body>
 </html>
-
