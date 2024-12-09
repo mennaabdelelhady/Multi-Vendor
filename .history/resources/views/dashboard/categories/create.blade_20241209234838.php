@@ -24,22 +24,9 @@
             @endforeach
         </select>
     </div>
-    <div class="form-group">
-        <label for="">Description</label>
-        <textarea name="description" class="form-control"></textarea>
-    </div>
-    <div class="form-group">
-        <label for="">Image</label>
-        <input type="file" name="image" class="form-control">
-    </div>
-    < class="form-group">
-        <label for="">status</label>
-        <div>
-
-        </div>
-    </div>
      <div class="form-group">
-        <button type="submit" class="btn btn-primary">Save</button>
+        <label for="">Delete</label>
+        <input type="text" name="name" class="form-control">
     </div>
 
 </form>

@@ -32,11 +32,9 @@
         <label for="">Image</label>
         <input type="file" name="image" class="form-control">
     </div>
-    < class="form-group">
+    <div class="form-group">
         <label for="">status</label>
-        <div>
-
-        </div>
+        <input type="file" name="image" class="form-control">
     </div>
      <div class="form-group">
         <button type="submit" class="btn btn-primary">Save</button>
