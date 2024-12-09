@@ -23,7 +23,7 @@
         </tr>
     </thead>
     <tbody>
-        @forelse($categories as $Category)
+        @foreach($categories as $Category)
         <tr>
             <td></td>
             <td>{{ $Category->id }}</td>

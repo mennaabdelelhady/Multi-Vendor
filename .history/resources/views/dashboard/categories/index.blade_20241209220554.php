@@ -7,10 +7,8 @@
     <li class="breadcrumb-item active">Categories</li>
 @endsection
 
-@section('content')  
-<div class="mb-5">
-    <a href="{{ route('categories.create') }}" class="btn btn-sm btn-outline-primary">Create</a>
-</div>   
+@section('content')
+
 <table class="table">
     <thead>
         <tr>
@@ -23,7 +21,8 @@
         </tr>
     </thead>
     <tbody>
-        @forelse($categories as $Category)
+        @if($categories->count())
+         @foreach ($categories as $Category)
         <tr>
             <td></td>
             <td>{{ $Category->id }}</td>
@@ -43,12 +42,13 @@
                 </form>
             </td>
         </tr>
-        @empty
+         @endforeach
+        @else
         <tr>
             <td colspan="7">No categories defined.</td>
         </tr>
-        @endforelse
-       
+
+        @endif
     </tbody>
 </table>
 

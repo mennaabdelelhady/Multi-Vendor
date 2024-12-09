@@ -10,7 +10,7 @@
 @section('content')
     
 <div class="mb-5">
-  <a href="{{ route('categories.create') }}" class="btn btn-sm btn-outline-primary">Create</a>
+  <a href="{{ route('categories.create') }}" class="btn btn-sm btn-outline-primary"></a>
 </div>    
     <!-- Main content -->
    

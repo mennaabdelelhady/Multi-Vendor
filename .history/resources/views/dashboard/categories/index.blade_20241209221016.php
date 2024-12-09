@@ -7,10 +7,8 @@
     <li class="breadcrumb-item active">Categories</li>
 @endsection
 
-@section('content')  
-<div class="mb-5">
-    <a href="{{ route('categories.create') }}" class="btn btn-sm btn-outline-primary">Create</a>
-</div>   
+@section('content')
+
 <table class="table">
     <thead>
         <tr>
@@ -43,10 +41,12 @@
                 </form>
             </td>
         </tr>
-        @empty
+        @else
         <tr>
             <td colspan="7">No categories defined.</td>
         </tr>
+
+        @endif
         @endforelse
        
     </tbody>

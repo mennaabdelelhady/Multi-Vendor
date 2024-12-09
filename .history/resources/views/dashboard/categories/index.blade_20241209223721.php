@@ -7,10 +7,12 @@
     <li class="breadcrumb-item active">Categories</li>
 @endsection
 
-@section('content')  
+@section('content')
+
 <div class="mb-5">
     <a href="{{ route('categories.create') }}" class="btn btn-sm btn-outline-primary">Create</a>
-</div>   
+</div>  
+
 <table class="table">
     <thead>
         <tr>
