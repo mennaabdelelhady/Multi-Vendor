@@ -19,30 +19,33 @@
         <label for="parent_id">Category Parent</label>
         <select type="parent_id" name="name" class="form-control form-select">
             <option value="">Primary Category</option>
-            @foreach($parents as $parent)
-            <option value="{{$parent->id}}">{{$parent->name}}</option>
+            @foreach ($parents as $parent )
+            <option value="{{$parent->id}">{{$parent->name}}</option>
             @endforeach
         </select>
     </div>
     <div class="form-group">
-        <label for="Description">Description</label>
+        <label for="">Description</label>
         <textarea name="description" class="form-control"></textarea>
     </div>
     <div class="form-group">
         <label for="">Image</label>
         <input type="file" name="image" class="form-control">
     </div>
-    <div class="form-group">
+    < class="form-group">
         <label for="">status</label>
         <div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="status"  value="active" checked>
-                <label class="form-check-label">Active</label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="status"  value="archived">
-                <label class="form-check-label">Archived</label>
-            </div>
+  <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+  <label class="form-check-label" for="defaultCheck1">
+    Default checkbox
+  </label>
+  </div><div class="form-check">
+  <input class="form-check-input" type="checkbox" value="" id="defaultCheck2" disabled>
+  <label class="form-check-label" for="defaultCheck2">
+    Disabled checkbox
+  </label>
+  </div>
 
         </div>
     </div>

@@ -19,8 +19,8 @@
         <label for="parent_id">Category Parent</label>
         <select type="parent_id" name="name" class="form-control form-select">
             <option value="">Primary Category</option>
-            @foreach($parents as $parent)
-            <option value="{{$parent->id}}">{{$parent->name}}</option>
+            @foreach ($parents as $parent )
+            <option value="{{$parent->id}">{{$parent->name}}</option>
             @endforeach
         </select>
     </div>
@@ -37,11 +37,11 @@
         <div>
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="status"  value="active" checked>
-                <label class="form-check-label">Active</label>
+                <label class="form-check-label" for="exampleRadios1">Active</label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="status"  value="archived">
-                <label class="form-check-label">Archived</label>
+                <input class="form-check-input" type="radio" name="status"  value="option2">
+                <label class="form-check-label" for="exampleRadios2">Archived</label>
             </div>
 
         </div>
