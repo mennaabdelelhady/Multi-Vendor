@@ -37,10 +37,10 @@
         @forelse($categories as $category)
         <tr>
             <td></td>
-            <td>{{ $category->id }}</td>
-            <td>{{ $category->name }}</td>
-            <td>{{ $category->parent_id }}</td>
-            <td>{{ $category->created_at }}</td>
+            <td>{{ $Category->id }}</td>
+            <td>{{ $Category->name }}</td>
+            <td>{{ $Category->parent_id }}</td>
+            <td>{{ $Category->created_at }}</td>
             <td>
                 <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-sm btn-outline-success">Edit</a>
             </td>

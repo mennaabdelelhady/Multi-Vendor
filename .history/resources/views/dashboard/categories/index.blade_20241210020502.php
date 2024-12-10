@@ -12,10 +12,8 @@
     <a href="{{ route('categories.create') }}" class="btn btn-sm btn-outline-primary">Create</a>
 </div>   
 
-@if (Session()->has('success'))
-<div class="alert alert-success">
-    {{ Session('success') }}
-</div>
+@if (Session()->has'success')
+
 
     
 @endif
@@ -34,13 +32,13 @@
         </tr>
     </thead>
     <tbody>
-        @forelse($categories as $category)
+        @forelse($categories as $Category)
         <tr>
             <td></td>
-            <td>{{ $category->id }}</td>
-            <td>{{ $category->name }}</td>
-            <td>{{ $category->parent_id }}</td>
-            <td>{{ $category->created_at }}</td>
+            <td>{{ $Category->id }}</td>
+            <td>{{ $Category->name }}</td>
+            <td>{{ $Category->parent_id }}</td>
+            <td>{{ $Category->created_at }}</td>
             <td>
                 <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-sm btn-outline-success">Edit</a>
             </td>

@@ -46,7 +46,7 @@ class CategoriesController extends Controller
 
         //Request merge
         $request->merge([
-            'slug'=>Str::slug($request->post('name'))
+            'slug'=>Str::slug()
         ]);
 
         //Mass assignment
@@ -54,8 +54,7 @@ class CategoriesController extends Controller
 
         //PRG_post_redirect_get
 
-        return redirect()->route('categories.index')
-        ->with('success', 'Category Created!');
+        return redirect()->route('categories.index');
 
 
     }

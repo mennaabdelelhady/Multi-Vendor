@@ -18,5 +18,5 @@ class Category extends Model
         'slug'
     ];
 
-   
+    protected $guarded =[];
 }

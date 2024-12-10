@@ -17,7 +17,7 @@
         </div>
         <div class="form-group">
             <label for="parent_id">Category Parent</label>
-            <select name="parent_id" name="name" class="form-control form-select">
+            <select type="parent_id" name="name" class="form-control form-select">
                 <option value="">Primary Category</option>
                 @foreach ($parents as $parent)
                     <option value="{{ $parent->id }}">{{ $parent->name }}</option>

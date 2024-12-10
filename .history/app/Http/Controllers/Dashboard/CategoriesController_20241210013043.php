@@ -5,8 +5,6 @@ namespace App\Http\Controllers\Dashboard;
 use App\Models\Category;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Str;
 
 class CategoriesController extends Controller
 {
@@ -43,19 +41,6 @@ class CategoriesController extends Controller
 
         $Category = new Category($request->all());
         $category->save();*/
-
-        //Request merge
-        $request->merge([
-            'slug'=>Str::slug($request->post('name'))
-        ]);
-
-        //Mass assignment
-        $category =Category::create($request->all());
-
-        //PRG_post_redirect_get
-
-        return redirect()->route('categories.index')
-        ->with('success', 'Category Created!');
 
 
     }

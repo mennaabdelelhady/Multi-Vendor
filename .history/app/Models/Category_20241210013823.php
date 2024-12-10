@@ -17,6 +17,4 @@ class Category extends Model
         'status',
         'slug'
     ];
-
-   
 }
