@@ -14,8 +14,10 @@ Route::group([
           ->name('dashboard');
 
 
-   Route::resource('dashboard/categories', CategoriesController::class);
-        
+   Route::resource('dashboard/categories', CategoriesController::class)
+        ->names([
+          
+        ]);
          
 });
 
