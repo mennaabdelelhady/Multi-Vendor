@@ -12,7 +12,6 @@
 
     <form action="{{ route('dashboard.categories.update', $category->id) }}" method="POST">
         @csrf
-        @method('PUT')
         <div class="form-group">
             <label for="">Category Name</label>
             <input type="text" name="name" class="form-control" value = "{{$category->name}}">
@@ -22,7 +21,7 @@
             <select name="parent_id"  class="form-control form-select">
                 <option value="">Primary Category</option>
                 @foreach ($parents as $parent)
-                    <option value="{{ $parent->id }}" @selected($category->parent_id == $parent->id)>{{ $parent->name }}</option>
+                    <option value="{{ $parent->id }}" @selected($category->parent_id == $parent_id)>{{ $parent->name }}</option>
                 @endforeach
             </select>
         </div>
