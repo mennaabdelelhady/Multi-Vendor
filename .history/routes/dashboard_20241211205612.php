@@ -11,11 +11,11 @@ Route::group([
     'prefix' => 'dashboard'
 
 ],function(){
-    Route::get('/',[DashboardController::class,'index'])
+    Route::get('/dashboard',[DashboardController::class,'index'])
           ->name('dashboard');
 
 
-   Route::resource('/categories', CategoriesController::class);
+   Route::resource('dashboard/categories', CategoriesController::class);
         
          
 });
