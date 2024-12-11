@@ -73,7 +73,7 @@ class CategoriesController extends Controller
      */
     public function edit(string $id)
     {
-        $category = Category::find($id);
+        $Category = Category::find($id);
         $parents = Category::where('id','<>',$id)->get();
         return view('dashboard.categories.edit', compact('category','parents'));
     }
