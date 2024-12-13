@@ -20,8 +20,8 @@
 
 
 @if (Session()->has('info'))
-<div class="alert alert-info">
-    {{ Session('info') }}
+<div class="alert alert-success">
+    {{ Session('success') }}
 </div>   
 @endif
 

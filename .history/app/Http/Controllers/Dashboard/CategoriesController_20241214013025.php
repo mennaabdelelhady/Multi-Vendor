@@ -76,7 +76,7 @@ class CategoriesController extends Controller
     {
         try{
             $category = Category::findOrFail($id);
-        } catch(\Illuminate\Database\Eloquent\ModelNotFoundException $e){
+        } catch(Exception $e){
             return redirect()->route('dashboard.categories.index')
                 ->with('info', 'Record Not Found!');
         }

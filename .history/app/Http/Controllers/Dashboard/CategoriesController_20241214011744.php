@@ -7,7 +7,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Str;
-use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class CategoriesController extends Controller
 {
@@ -75,10 +74,9 @@ class CategoriesController extends Controller
     public function edit(string $id)
     {
         try{
-            $category = Category::findOrFail($id);
-        } catch(\Illuminate\Database\Eloquent\ModelNotFoundException $e){
-            return redirect()->route('dashboard.categories.index')
-                ->with('info', 'Record Not Found!');
+            $category = Category::find($id);
+        } catch(Exception $e){
+            return redirect()->route('dashboard.categories.index');
         }
 
         $parents = Category::where('id','<>',$id)->get();
