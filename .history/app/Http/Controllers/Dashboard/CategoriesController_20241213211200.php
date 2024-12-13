@@ -54,7 +54,7 @@ class CategoriesController extends Controller
 
         //PRG_post_redirect_get
 
-        return redirect()->route('dashboard.categories.index')
+        return redirect()->route('categories.index')
         ->with('success', 'Category Created!');
 
 
@@ -85,10 +85,7 @@ class CategoriesController extends Controller
     {
         $category = Category::find($id);
         $category->update($request->all());
-        //$category->fill($request->all())->save();
-
-        return redirect()->route('dashboard.categories.index')
-        ->with('success', 'Category Created!');
+        $category->fill($request->all();
     }
 
     /**
