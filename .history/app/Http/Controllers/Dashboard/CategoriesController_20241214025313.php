@@ -82,9 +82,9 @@ class CategoriesController extends Controller
         }
 
         $parents = Category::where('id','<>',$id)
-        ->where(function($query) use ($id){
+        ->where(function($query){
             $query->whereNull('parent_id')
-            ->orWhere('parent_id', '<>',$id);
+            ->orWhere('parent_id', '<>',$id)
         })
     
         ->get();

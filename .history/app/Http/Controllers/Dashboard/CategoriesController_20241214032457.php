@@ -87,7 +87,7 @@ class CategoriesController extends Controller
             ->orWhere('parent_id', '<>',$id);
         })
     
-        ->get();
+        ->dd();
         return view('dashboard.categories.edit', compact('category','parents'));
     }
 
