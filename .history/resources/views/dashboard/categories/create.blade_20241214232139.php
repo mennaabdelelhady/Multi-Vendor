@@ -9,9 +9,9 @@
 
 @section('content')
 
-    <form action="{{ route('dashboard.categories.store') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('dashboard.categories.store') }}" method="POST">
         @csrf
-        @include('dashboard.categories._form')
+        
 
     </form>
 

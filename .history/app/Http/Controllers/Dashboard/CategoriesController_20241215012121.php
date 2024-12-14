@@ -104,10 +104,6 @@ class CategoriesController extends Controller
 
         if($request->hasFile('image')){
             $file = $request->file('image');//uploadedFile object
-            // $file->getClientOriginalName();
-            // $file->getSize();
-            // $file->getClientOriginalExtension();
-            // $file->getMimeType();
             $path = $file->store('uploads', 'public');
 
             $data ['image'] = $path;
@@ -121,7 +117,7 @@ class CategoriesController extends Controller
         }
 
         return redirect()->route('dashboard.categories.index')
-        ->with('success', 'Category Updated!');
+        ->with('success', 'Category Created!');
         
     }
 

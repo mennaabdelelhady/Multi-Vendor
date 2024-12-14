@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
-use Illuminate\Support\Facades\Storage;
 
 class CategoriesController extends Controller
 {
@@ -46,7 +45,6 @@ class CategoriesController extends Controller
             $file = $request->file('image');//uploadedFile object
             $path = $file->store('uploads', 'public');
 
-            //dd($path);
             $data ['image'] = $path;
         }
         
@@ -104,10 +102,6 @@ class CategoriesController extends Controller
 
         if($request->hasFile('image')){
             $file = $request->file('image');//uploadedFile object
-            // $file->getClientOriginalName();
-            // $file->getSize();
-            // $file->getClientOriginalExtension();
-            // $file->getMimeType();
             $path = $file->store('uploads', 'public');
 
             $data ['image'] = $path;
@@ -116,12 +110,12 @@ class CategoriesController extends Controller
         //$category->fill($request->all())->save();
 
         if ($old_image && isset($data['image'])){
-            Storage::disk('public')->delete($old_image);
+            Storage::delete($old_image);
 
         }
 
         return redirect()->route('dashboard.categories.index')
-        ->with('success', 'Category Updated!');
+        ->with('success', 'Category Created!');
         
     }
 
@@ -130,14 +124,10 @@ class CategoriesController extends Controller
      */
     public function destroy(string $id)
     {
-        $category = Category::findOrFail($id);
-        $category->delete();
+        //$category = Category::findOrFail($id);
+        //$category->delete();
 
-        if($category->image){
-            Storage::disk('public')->delete($category->image);
-        }
-
-        //Category::destroy($id);
+        Category::destroy($id);
 
         return redirect()->route('dashboard.categories.index')
         ->with('success', 'Category Deleted!');

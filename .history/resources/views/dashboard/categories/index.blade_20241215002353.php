@@ -40,7 +40,7 @@
     <tbody>
         @forelse($categories as $category)
         <tr>
-            <td><img src="{{ asset('storage/' . $category->image) }}" alt="{{ $category->name }}" height="60"></td>
+            <td><img src="{{ $category->image}}"></td>
             <td>{{ $category->id }}</td>
             <td>{{ $category->name }}</td>
             <td>{{ $category->parent_id }}</td>

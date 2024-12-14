@@ -1,18 +1,16 @@
 @extends('layouts.dashboard')
 
-@section('title', 'Edit Category')
+@section('title', 'Categories')
 
 @section('breadcrumb')
     @parent
     <li class="breadcrumb-item active">Categories</li>
-    <li class="breadcrumb-item active">Edit Categories</li>
 @endsection
 
 @section('content')
 
-    <form action="{{ route('dashboard.categories.update', $category->id) }}" method="POST">
+    <form action="{{ route('dashboard.categories.store') }}" method="POST">
         @csrf
-        @method('PUT')
         @include('dashboard.categories._form')
 
     </form>

@@ -104,10 +104,7 @@ class CategoriesController extends Controller
 
         if($request->hasFile('image')){
             $file = $request->file('image');//uploadedFile object
-            // $file->getClientOriginalName();
-            // $file->getSize();
-            // $file->getClientOriginalExtension();
-            // $file->getMimeType();
+            $file->getClientOriginalName();
             $path = $file->store('uploads', 'public');
 
             $data ['image'] = $path;

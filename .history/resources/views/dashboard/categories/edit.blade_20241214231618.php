@@ -13,7 +13,7 @@
     <form action="{{ route('dashboard.categories.update', $category->id) }}" method="POST">
         @csrf
         @method('PUT')
-        @include('dashboard.categories._form')
+        
 
     </form>
 
