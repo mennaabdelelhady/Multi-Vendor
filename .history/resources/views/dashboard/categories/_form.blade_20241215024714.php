@@ -17,7 +17,7 @@
 </div>
 <div class="form-group">
     <label for="">Image</label>
-    <input type="file" name="image" class="form-control" accept="image/*">
+    <input type="file" name="image" class="form-control">
     @if ($category->image)
     <img src="{{ asset('storage/' . $category->image) }}" alt="{{ $category->name }}" height="60">
     @endif

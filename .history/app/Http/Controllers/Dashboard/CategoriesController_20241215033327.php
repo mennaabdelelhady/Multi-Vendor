@@ -94,7 +94,6 @@ class CategoriesController extends Controller
 
         $old_image = $category->image;
         $data = $request->except('image');
-        $data['image'] = $this->uploadedImage($request);
 
         
         $category->update($data);

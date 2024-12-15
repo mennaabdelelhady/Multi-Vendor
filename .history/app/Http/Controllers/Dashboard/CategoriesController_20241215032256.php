@@ -94,13 +94,21 @@ class CategoriesController extends Controller
 
         $old_image = $category->image;
         $data = $request->except('image');
-        $data['image'] = $this->uploadedImage($request);
 
-        
+        if($request->hasFile('image')){
+            $file = $request->file('image');//uploadedFile object
+            // $file->getClientOriginalName();
+            // $file->getSize();
+            // $file->getClientOriginalExtension();
+            // $file->getMimeType();
+            $path = $file->store('uploads', 'public');
+
+            $data ['image'] = $path;
+        }
         $category->update($data);
         //$category->fill($request->all())->save();
 
-        if ($old_image && $data['image']){
+        if ($old_image && isset($data['image'])){
             Storage::disk('public')->delete($old_image);
 
         }

@@ -41,7 +41,14 @@ class CategoriesController extends Controller
             'slug'=>Str::slug($request->post('name'))
         ]);
         $data = $request->except('image');
-        $data ['image'] = $this->uploadedImage($request);
+        
+        if($request->hasFile('image')){
+            $file = $request->file('image');//uploadedFile object
+            $path = $file->store('uploads', 'public');
+
+            //dd($path);
+            $data ['image'] = $path;
+        }
         
 
         //Mass assignment
@@ -94,13 +101,21 @@ class CategoriesController extends Controller
 
         $old_image = $category->image;
         $data = $request->except('image');
-        $data['image'] = $this->uploadedImage($request);
 
-        
+        if($request->hasFile('image')){
+            $file = $request->file('image');//uploadedFile object
+            // $file->getClientOriginalName();
+            // $file->getSize();
+            // $file->getClientOriginalExtension();
+            // $file->getMimeType();
+            $path = $file->store('uploads', 'public');
+
+            $data ['image'] = $path;
+        }
         $category->update($data);
         //$category->fill($request->all())->save();
 
-        if ($old_image && $data['image']){
+        if ($old_image && isset($data['image'])){
             Storage::disk('public')->delete($old_image);
 
         }
@@ -124,14 +139,17 @@ class CategoriesController extends Controller
         ->with('success', 'Category Deleted!');
     }
 
-    protected function uploadedImage( Request $request)
+    protected function uploadedFile( Request $request)
     {
-        if(!$request->hasFile('image')){
-            return;
-        }
+        if($request->hasFile('image')){
             $file = $request->file('image');//uploadedFile object
+            // $file->getClientOriginalName();
+            // $file->getSize();
+            // $file->getClientOriginalExtension();
+            // $file->getMimeType();
             $path = $file->store('uploads', 'public');
 
-            return $path;
+            $data ['image'] = $path;
+        }
     }
 }
