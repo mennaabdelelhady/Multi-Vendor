@@ -16,7 +16,7 @@
         'is-invalid'=> $errors->has('name'),
 
     ])
-    value="{{ old('name') ?? $category->name }}">
+    value="{{ old('name') }}">
     @error('name')
         <div class="invalid-feedback">
             {{ $message }}
@@ -48,13 +48,13 @@
         <label for="">status</label>
         <div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="status" value="active" @checked(old('status') == 'active')>
+                <input class="form-check-input" type="radio" name="status" value="active" @checked($category->status == 'active')>
                 <label class="form-check-label">
                     Active
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="status" value="archived" @checked(old('status') == 'archived')>
+                <input class="form-check-input" type="radio" name="status" value="archived" @checked($category->status == 'archived')>
                 <label class="form-check-label">Archived</label>
             </div>
 

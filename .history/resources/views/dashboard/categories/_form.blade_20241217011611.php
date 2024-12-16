@@ -16,7 +16,7 @@
         'is-invalid'=> $errors->has('name'),
 
     ])
-    value="{{ old('name') ?? $category->name }}">
+    value="{{ old('name') }}">
     @error('name')
         <div class="invalid-feedback">
             {{ $message }}

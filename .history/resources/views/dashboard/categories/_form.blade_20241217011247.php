@@ -16,7 +16,7 @@
         'is-invalid'=> $errors->has('name'),
 
     ])
-    value="{{ old('name') ?? $category->name }}">
+    value="{{ old('name') }}">
     @error('name')
         <div class="invalid-feedback">
             {{ $message }}
@@ -29,13 +29,13 @@
         <select name="parent_id" class="form-control form-select">
             <option value="">Primary Category</option>
             @foreach ($parents as $parent)
-                <option value="{{ $parent->id }}" @selected(old('parent_id') == $parent->id)>{{ $parent->name }}</option>
+                <option value="{{ $parent->id }}" @selected($category->parent_id == $parent->id)>{{ $parent->name }}</option>
             @endforeach
         </select>
     </div>
     <div class="form-group">
         <label for="Description">Description</label>
-        <textarea name="description" class="form-control">{{ old('description') }}</textarea>
+        <textarea name="description" class="form-control">{{ $category->description }}</textarea>
     </div>
     <div class="form-group">
         <label for="">Image</label>
@@ -48,13 +48,13 @@
         <label for="">status</label>
         <div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="status" value="active" @checked(old('status') == 'active')>
+                <input class="form-check-input" type="radio" name="status" value="active" @checked($category->status == 'active')>
                 <label class="form-check-label">
                     Active
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="status" value="archived" @checked(old('status') == 'archived')>
+                <input class="form-check-input" type="radio" name="status" value="archived" @checked($category->status == 'archived')>
                 <label class="form-check-label">Archived</label>
             </div>
 
