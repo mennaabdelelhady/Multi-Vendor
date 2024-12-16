@@ -11,14 +11,9 @@
 
 <div class="form-group">
     <label for="">Category Name</label>
-    <input type="text" name="name" @class([
-        'form-control',
-        'is-invalid'=> $errors->has('name'),
-
-    ])
-    value="{{ $category->name ?? '' }}">
+    <input type="text" name="name" class="form-control" value = "{{ $category->name ?? '' }}">
     @error('name')
-        <div class="invalid-feedback">
+        <div class="text-danger">
             {{ $message }}
         </div>
         @enderror
