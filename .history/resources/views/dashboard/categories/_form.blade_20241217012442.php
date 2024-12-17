@@ -48,13 +48,13 @@
         <label for="">status</label>
         <div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="status" value="active" @checked(old('status',$category->status) == 'active')>
+                <input class="form-check-input" type="radio" name="status" value="active" @checked(old('status') == 'active')>
                 <label class="form-check-label">
                     Active
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="status" value="archived" @checked(old('status',$category->status) == 'archived')>
+                <input class="form-check-input" type="radio" name="status" value="archived" @checked(old('status') == 'archived')>
                 <label class="form-check-label">Archived</label>
             </div>
 

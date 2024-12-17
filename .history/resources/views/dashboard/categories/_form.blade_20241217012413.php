@@ -35,7 +35,7 @@
     </div>
     <div class="form-group">
         <label for="Description">Description</label>
-        <textarea name="description" class="form-control">{{ old('description', $category->description) }}</textarea>
+        <textarea name="description" class="form-control">{{ old('description') }}</textarea>
     </div>
     <div class="form-group">
         <label for="">Image</label>
@@ -48,13 +48,13 @@
         <label for="">status</label>
         <div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="status" value="active" @checked(old('status',$category->status) == 'active')>
+                <input class="form-check-input" type="radio" name="status" value="active" @checked(old('status') == 'active')>
                 <label class="form-check-label">
                     Active
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="status" value="archived" @checked(old('status',$category->status) == 'archived')>
+                <input class="form-check-input" type="radio" name="status" value="archived" @checked(old('status') == 'archived')>
                 <label class="form-check-label">Archived</label>
             </div>
 

@@ -36,10 +36,7 @@ class CategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        $clean_data= $request->validate(Category::rules(),[
-            'unique' => 'this name is already exits ',
-            'required' => 'this field (:attribute) is required',
-        ]);
+        $request->validate(Category::rules());
         //Request merge
         $request->merge([
             'slug'=>Str::slug($request->post('name'))

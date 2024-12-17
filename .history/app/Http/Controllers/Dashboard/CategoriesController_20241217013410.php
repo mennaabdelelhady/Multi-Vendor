@@ -36,9 +36,12 @@ class CategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        $clean_data= $request->validate(Category::rules(),[
-            'unique' => 'this name is already exits ',
-            'required' => 'this field (:attribute) is required',
+        $request->validate([
+            'name' => 'required|string|min:3|max:255',
+            'parent_id' => 'nullable|integer|exists:categories,id',
+            'image' => 'image|mimes:jpg,jpeg,png,gif,svg|max:1048576,dimensions:min_width=100,min_height=100',
+            'status' =>'in:active,archived',
+
         ]);
         //Request merge
         $request->merge([
@@ -94,28 +97,26 @@ class CategoriesController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $request->validate(Category::rules($id));
+        $request->validate(Category::rules());
 
 
         $category = Category::findOrFail($id);
 
         $old_image = $category->image;
         $data = $request->except('image');
-        $new_image = $this->uploadedImage($request);
-        if ($new_image){
-            $data['image'] = $new_image;
-        }
+        $data['image'] = $this->uploadedImage($request);
+
         
         $category->update($data);
         //$category->fill($request->all())->save();
 
-        if ($old_image && $new_image){
+        if ($old_image && $data['image']){
             Storage::disk('public')->delete($old_image);
 
         }
 
-        return Redirect::route('dashboard.categories.index')
-            ->with('success', 'Category Updated!');
+        return redirect()->route('dashboard.categories.index')
+        ->with('success', 'Category Updated!');
         
     }
 

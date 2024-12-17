@@ -36,7 +36,7 @@ class CategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        $clean_data= $request->validate(Category::rules(),[
+        $data = $request->validate(Category::rules(),[
             'unique' => 'this name is already exits ',
             'required' => 'this field (:attribute) is required',
         ]);
@@ -44,7 +44,7 @@ class CategoriesController extends Controller
         $request->merge([
             'slug'=>Str::slug($request->post('name'))
         ]);
-        $data = $request->except('image');
+        //$data = $request->except('image');
         $data ['image'] = $this->uploadedImage($request);
         
 
