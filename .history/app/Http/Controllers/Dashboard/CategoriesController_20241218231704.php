@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
-use App\Http\Requests\CategoryRequest;
+use App\Http\Requests\Dashboard\CategoryRequest;
 use Illuminate\Support\Facades\Storage;
 
 class CategoriesController extends Controller

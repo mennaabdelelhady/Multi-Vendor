@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
-use App\Http\Requests\CategoryRequest;
+use App\Http\Requests\Dashboard\CategoryRequest;
 use Illuminate\Support\Facades\Storage;
 
 class CategoriesController extends Controller
@@ -49,7 +49,7 @@ class CategoriesController extends Controller
             'slug'=>Str::slug($request->post('name'))
         ]);
         $data = $request->except('image');
-        $data ['image'] = $this->uploadImage($request);
+        $data ['image'] = $this->uploadedImage($request);
         
 
         //Mass assignment
@@ -96,7 +96,7 @@ class CategoriesController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(CategoryRequest $request, $id)
+    public function update(CategoryRequest $request, string $id)
     {
         
         //$request->validate(Category::rules($id));
