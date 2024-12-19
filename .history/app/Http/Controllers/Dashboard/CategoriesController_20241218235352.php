@@ -140,17 +140,11 @@ class CategoriesController extends Controller
     protected function uploadedImage( Request $request)
     {
         if(!$request->hasFile('image')){
-            return null;
+            return;
         }
             $file = $request->file('image');//uploadedFile object
-
-            $request->validate([
-                'image' => 'image|max:2048', // Example: max size 2MB
-            ]);
-            
             $path = $file->store('uploads', 'public');
 
-           return $path;
-           
+            return $path;
     }
 }

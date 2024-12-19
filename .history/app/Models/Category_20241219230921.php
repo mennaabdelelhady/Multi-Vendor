@@ -24,19 +24,12 @@ class Category extends Model
    {
     return [
         
-            'name' =>  [
-                'required',
-                'string',
-                'min:3',
-                'max:255',
-                // "unique:categories,name,$id",
-                Rule::unique('categories', 'name')->ignore($id),
-                function($attribute, $value, $fails){
-                    if($value == 'laravel'){
+            'name' => "required|string|min:3|max:255|unique:categories,name,$id",
+            function($attribute, $value, $fails){
+                if($value == 'laravel'){
                     $fails('This name is forbidden');
                 }
             },
-        ],
             'parent_id' => ['nullable','int','exists:categories,id'],
             'image' => [
                 'image', 'max:1048576', 'dimensions:min_width=100,min_height=100',

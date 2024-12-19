@@ -143,14 +143,9 @@ class CategoriesController extends Controller
             return null;
         }
             $file = $request->file('image');//uploadedFile object
-
-            $request->validate([
-                'image' => 'image|max:2048', // Example: max size 2MB
-            ]);
-            
             $path = $file->store('uploads', 'public');
 
-           return $path;
-           
+           //return $path;
+           return $file->store('uploads', 'public');
     }
 }
