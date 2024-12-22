@@ -36,7 +36,16 @@
     <div class="form-group">
         <label for="">status</label>
         <div>
-            <x-form.radio name="status" :options="['active'=>'Active','archived'=>'Archived']" :checked="$category->status"/>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="status" value="active" @checked(old('status',$category->status) == 'active')>
+                <label class="form-check-label">
+                    Active
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="status" value="archived" @checked(old('status',$category->status) == 'archived')>
+                <label class="form-check-label">Archived</label>
+            </div>
 
         </div>
     </div>

@@ -28,7 +28,7 @@
     <div class="form-group">
         <label for="">Image</label>
         <x-form.label id="image">Image</x-form.label>
-        <x-form.input type="file" name="image" accept="image/*"/>
+        <x-form.input type="file" name="image" accept="image/*">
         @if ($category->image)
             <img src="{{ asset('storage/' . $category->image) }}" alt="{{ $category->name }}" height="60">
         @endif
@@ -36,7 +36,16 @@
     <div class="form-group">
         <label for="">status</label>
         <div>
-            <x-form.radio name="status" :options="['active'=>'Active','archived'=>'Archived']" :checked="$category->status"/>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="status" value="active" @checked(old('status',$category->status) == 'active')>
+                <label class="form-check-label">
+                    Active
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="status" value="archived" @checked(old('status',$category->status) == 'archived')>
+                <label class="form-check-label">Archived</label>
+            </div>
 
         </div>
     </div>

@@ -13,7 +13,6 @@
 </div>   
 
 <x-alert type="success"/>
-<x-alert type="info"/>
 
 
 <table class="table">
