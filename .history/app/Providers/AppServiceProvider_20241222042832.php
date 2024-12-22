@@ -3,7 +3,6 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Facades\Validator;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -21,8 +20,11 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         //
-        Validator::extend('filter',function($attribute, $value,$params){
-            return ! in_array(strtolower($value), $params);
+        Validator::extend('filter',function($attribute, $value){
+            if(strtolower($value) == 'laravel'){
+            return false;
+            }
+        return true;
         },'This name is prohipted!');
     }
 }

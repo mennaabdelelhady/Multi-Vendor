@@ -4,10 +4,8 @@ namespace App\Http\Requests;
 
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Rules\Filter;
 use App\Models\Category;
-use Illuminate\Validation\Rule;
-//use Illuminate\Validation\Rules\Filter;
+use Illuminate\Validation\Rules\Filter;
 use Illuminate\Support\Facades\Gate;
 
 class CategoryRequest extends FormRequest
@@ -29,18 +27,6 @@ class CategoryRequest extends FormRequest
     {
         $id = $this->route('category');
         return Category::rules($id);
-
-        // return [
-        //     'name' => [
-        //         'required',
-        //         'string',
-        //         'min:3',
-        //         'max:255',
-        //         Rule::unique('categories', 'name')->ignore($id),
-        //         new Filter(['laravel', 'admin', 'php', 'restricted'])
-
-        //     ],
-        // ];
     }
 
     public function messages(){

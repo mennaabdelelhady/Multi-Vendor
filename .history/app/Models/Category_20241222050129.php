@@ -42,7 +42,7 @@ class Category extends Model
         ],
             'parent_id' => ['nullable','int','exists:categories,id'],
             'image' => [
-                'image', 'max:1048576','nullable'
+                'image', 'max:1048576'
             ],
             'status' =>'required|in:active,archived',
 

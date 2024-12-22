@@ -41,8 +41,8 @@ class CategoriesController extends Controller
     public function store(Request $request)
     {
         $clean_data= $request->validate(Category::rules(),[
-            'name.unique' => 'this name is already exits ',
-            'name.required' => 'this field (:attribute) is required'
+            'unique' => 'this name is already exits ',
+            'required' => 'this field (:attribute) is required'
         ]);
         //Request merge
         $request->merge([
@@ -110,13 +110,13 @@ class CategoriesController extends Controller
             $data['image'] = $new_image;
         }
         
-        if($category->update($data)){
+        $category->update($data);
         //$category->fill($request->all())->save();
 
         if ($old_image && $new_image){
             Storage::disk('public')->delete($old_image);
 
-        }}
+        }
 
         return Redirect::route('dashboard.categories.index')
             ->with('success', 'Category Updated!');
@@ -144,16 +144,13 @@ class CategoriesController extends Controller
         }
             $file = $request->file('image');//uploadedFile object
 
-            try {
-                $request->validate([
-                    'image' => 'image|max:2048',  // Max 2MB
-                ]);
-        
-                $path = $file->store('uploads', 'public');
-                return $path;
-            } catch (\Exception $e) {
-                return null; // or log error, or handle as needed
-            }
+            $request->validate([
+                'image' => 'image|mimes:jpeg,png,jpg,gif', // Example: max size 2MB
+            ]);
+            
+            $path = $file->store('uploads', 'public');
+
+           return $path;
            
     }
 }

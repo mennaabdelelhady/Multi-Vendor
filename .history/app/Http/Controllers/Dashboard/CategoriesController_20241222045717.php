@@ -144,16 +144,13 @@ class CategoriesController extends Controller
         }
             $file = $request->file('image');//uploadedFile object
 
-            try {
-                $request->validate([
-                    'image' => 'image|max:2048',  // Max 2MB
-                ]);
-        
-                $path = $file->store('uploads', 'public');
-                return $path;
-            } catch (\Exception $e) {
-                return null; // or log error, or handle as needed
-            }
+            $request->validate([
+                'image' => 'image|mimes:jpeg,png,jpg,gif|max:1048576', // Example: max size 2MB
+            ]);
+            
+            $path = $file->store('uploads', 'public');
+
+           return $path;
            
     }
 }
