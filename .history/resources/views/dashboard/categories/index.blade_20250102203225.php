@@ -68,5 +68,5 @@
     </tbody>
 </table>
 
-{{ $categories->withQueryString()->appends(['search'=>1])->links() }}
+{{ $categories->withQueryString()->links() }}
 @endsection
