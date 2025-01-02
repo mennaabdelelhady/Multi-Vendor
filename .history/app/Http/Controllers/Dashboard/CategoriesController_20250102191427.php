@@ -30,7 +30,7 @@ class CategoriesController extends Controller
         }
 
         if($status = $request->query('status')){
-            $query->where('status','=',$status);
+            $query->where('name','=',$status);
         }
         $categories = $query->paginate(2);//return collection object
         return view('dashboard.categories.index',compact('categories'));

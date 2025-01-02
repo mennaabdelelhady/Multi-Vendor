@@ -24,15 +24,7 @@ class CategoriesController extends Controller
     {
         $request= request();
         $query = Category::query();
-
-        if($name = $request->query('name')){
-            $query->where('name','like',"%{$name}%");
-        }
-
-        if($status = $request->query('status')){
-            $query->where('status','=',$status);
-        }
-        $categories = $query->paginate(2);//return collection object
+        $categories = Category::paginate(2);//return collection object
         return view('dashboard.categories.index',compact('categories'));
     }
 

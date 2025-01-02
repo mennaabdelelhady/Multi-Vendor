@@ -15,14 +15,13 @@
 <x-alert type="success"/>
 <x-alert type="info"/>
 
-<form action="{{ URL::current()}}" method="GET" class="d-flex justify-content-between mb-4">
-    <x-form.input name="name" placeholder="Name" class="mx-2" :value="request('name')"/>
-    <select name="status" class="form-control mx-2">
+<form action="{{ URL::current()}}" method="GET">
+    <x-form.input name="name" placeholder="Name" />
+    <select name="status" class="form-control">
         <option value="">All</option>
-        <option value="active" @selected(request('status')=='active')>Active</option>
-        <option value="archived" @selected(request('status')=='archived')>Archived</option>
+        <option value="">All</option>
+        <option value="">All</option>
     </select>
-    <button class="btn btn-dark mx-2">Filter</button>
 </form>
 
 <table class="table">
