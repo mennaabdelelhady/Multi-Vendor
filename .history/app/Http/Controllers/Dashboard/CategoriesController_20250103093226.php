@@ -33,9 +33,8 @@ class CategoriesController extends Controller
             'parents.name as parent_name'
         ])
         ->filter($request->query())
-        ->orderBy('categories.name')
-        //->dd();
-        ->paginate();//return collection object
+        ->orderBy('name')
+        ->paginate(1);//return collection object
         
         return view('dashboard.categories.index',compact('categories'));
     }

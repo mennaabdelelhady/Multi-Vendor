@@ -61,7 +61,7 @@
         </tr>
         @empty
         <tr>
-            <td colspan="8">No categories defined.</td>
+            <td colspan="7">No categories defined.</td>
         </tr>
         @endforelse
        

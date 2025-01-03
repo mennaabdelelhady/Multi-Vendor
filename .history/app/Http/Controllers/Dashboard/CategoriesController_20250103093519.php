@@ -34,8 +34,8 @@ class CategoriesController extends Controller
         ])
         ->filter($request->query())
         ->orderBy('categories.name')
-        //->dd();
-        ->paginate();//return collection object
+        ->dd();
+        //->paginate(1);//return collection object
         
         return view('dashboard.categories.index',compact('categories'));
     }

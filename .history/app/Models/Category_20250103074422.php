@@ -25,18 +25,7 @@ class Category extends Model
    {
        $builder->where('status','=','active');
    }
-   public function scopeFilter(Builder $builder, $filters)
-   {
 
-    $builder->when($filters['name']??false,function($builder,$value){
-        $builder->where('categories.name','LIKE',"%{$value}%");    
-    });
-
-    $builder->when($filters['status']??false,function($builder,$value){
-        $builder->where('categories.status','=',$value);    
-    });
-    
-   }
    public static function rules($id = 0)
    {
     return [

@@ -28,14 +28,9 @@ class CategoriesController extends Controller
         //FROM categories a 
         //LEFT JOIN categories b ON a.parent_id = b.id;
         $categories = Category::leftJoin('categories as parents','parents.id','=','categories.parent_id')
-        ->select([
-            'categories.*',
-            'parents.name as parent_name'
-        ])
         ->filter($request->query())
-        ->orderBy('categories.name')
-        //->dd();
-        ->paginate();//return collection object
+        ->orderBy('name')
+        ->paginate(1);//return collection object
         
         return view('dashboard.categories.index',compact('categories'));
     }

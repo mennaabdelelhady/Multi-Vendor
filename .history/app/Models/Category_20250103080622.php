@@ -27,15 +27,13 @@ class Category extends Model
    }
    public function scopeFilter(Builder $builder, $filters)
    {
+    if($name = $request->query('name')){
+        $query->where('name','like',"%{$name}%");
+    }
 
-    $builder->when($filters['name']??false,function($builder,$value){
-        $builder->where('categories.name','LIKE',"%{$value}%");    
-    });
-
-    $builder->when($filters['status']??false,function($builder,$value){
-        $builder->where('categories.status','=',$value);    
-    });
-    
+    if($status = $request->query('status')){
+        $query->where('status','=',$status);
+    }
    }
    public static function rules($id = 0)
    {
