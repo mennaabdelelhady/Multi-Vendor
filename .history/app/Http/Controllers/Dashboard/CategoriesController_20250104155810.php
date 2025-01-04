@@ -143,7 +143,7 @@ class CategoriesController extends Controller
      */
     public function destroy(Category $category)
     {
-        //$category = Category::findOrFail($id);
+        $category = Category::findOrFail($id);
         $category->delete();
          
        

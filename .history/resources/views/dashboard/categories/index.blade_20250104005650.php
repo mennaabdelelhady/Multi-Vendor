@@ -9,8 +9,8 @@
 
 @section('content')  
 <div class="mb-5">
-    <a href="{{ route('dashboard.categories.create') }}" class="btn btn-sm btn-outline-primary mr-2">Create</a>
-    <a href="{{ route('dashboard.categories.trash') }}" class="btn btn-sm btn-outline-dark">Trash</a>
+    <a href="{{ route('dashboard.categories.create') }}" class="btn btn-sm btn-outline-primary">Create</a>
+    <a href="{{ route('dashboard.categories.trash') }}" class="btn btn-sm btn-outline-primary">Create</a>
 
 </div>   
 

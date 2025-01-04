@@ -1,17 +1,17 @@
 @extends('layouts.dashboard')
 
-@section('title','Categories')
+@section('title','Trashed Categories')
 
 @section('breadcrumb')
     @parent
-    <li class="breadcrumb-item active">Categories</li>
+    <li class="breadcrumb-item">Categories</li>
+    <li class="breadcrumb-item active">trash</li>
+
 @endsection
 
 @section('content')  
 <div class="mb-5">
-    <a href="{{ route('dashboard.categories.create') }}" class="btn btn-sm btn-outline-primary mr-2">Create</a>
-    <a href="{{ route('dashboard.categories.trash') }}" class="btn btn-sm btn-outline-dark">Trash</a>
-
+    <a href="{{ route('dashboard.categories.index') }}" class="btn btn-sm btn-outline-primary">Back</a>
 </div>   
 
 <x-alert type="success"/>
@@ -33,9 +33,8 @@
             <th></th>
             <th>ID</th>
             <th>Name</th>
-            <th>Parent</th>
             <th>Status</th>
-            <th>Created At</th>
+            <th>Deleted At</th>
             <th colspan="2"></th>
         </tr>
     </thead>

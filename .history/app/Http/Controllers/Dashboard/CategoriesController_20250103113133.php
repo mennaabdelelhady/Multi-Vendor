@@ -141,12 +141,14 @@ class CategoriesController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Category $category)
+    public function destroy(string $id)
     {
-        //$category = Category::findOrFail($id);
+        $category = Category::findOrFail($id);
         $category->delete();
          
-       
+        //if($category->image){
+        //    Storage::disk('public')->delete($category->image);
+        //}
 
         //Category::destroy($id);
         
@@ -186,18 +188,5 @@ class CategoriesController extends Controller
 
         return redirect()->route('dashboard.categories.trash')
              ->with('success', 'Category Restored!');
-    }
-
-    public function forceDelete($id)
-    {
-        $category = Category::onlyTrashed()->findOrFail($id);
-        $category->forceDelete();
-         
-        if($category->image){
-            Storage::disk('public')->delete($category->image);
-        }
-
-        return redirect()->route('dashboard.categories.trash')
-             ->with('success', 'Category Deleted Forever!');
     }
 }

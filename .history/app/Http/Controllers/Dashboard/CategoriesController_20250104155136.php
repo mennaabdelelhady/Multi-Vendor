@@ -141,9 +141,9 @@ class CategoriesController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Category $category)
+    public function destroy(string $id)
     {
-        //$category = Category::findOrFail($id);
+        $category = Category::findOrFail($id);
         $category->delete();
          
        
@@ -190,7 +190,7 @@ class CategoriesController extends Controller
 
     public function forceDelete($id)
     {
-        $category = Category::onlyTrashed()->findOrFail($id);
+        $category = Category::findOrFail($id);
         $category->forceDelete();
          
         if($category->image){
