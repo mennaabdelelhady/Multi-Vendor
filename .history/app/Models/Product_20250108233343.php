@@ -14,7 +14,7 @@ class Product extends Model
     protected static function booted()
     {
         static::addGlobalScope('store',function(Builder $builder){
-            $user = Auth::user();
+            $user = auth()->user();
             $builder->where('store_id','=',$user->store_id);
 
         });
