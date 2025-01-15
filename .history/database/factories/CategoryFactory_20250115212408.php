@@ -2,10 +2,10 @@
 
 namespace Database\Factories;
 
-//use App\Models\Category;
+use App\Models\Category;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\str;
-//use App\Fakers\CategoryProvider;
+use App\Fakers\CategoryProvider;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Category>
  */
@@ -18,7 +18,7 @@ class CategoryFactory extends Factory
      */
     public function definition(): array
     {
-        $name =$this->faker->department;
+        $name =$this->faker->category;
         return [
             'name' => $name,
             'slug' => Str::slug($name),

@@ -14,6 +14,6 @@ class Product extends Model
 
     protected static function booted()
     {
-        static::addGlobalScope('store',new StoreScope());
+        static::addGlobalScope('store',new StoreScope);
     }
 }

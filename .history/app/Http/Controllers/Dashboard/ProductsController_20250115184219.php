@@ -13,9 +13,12 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        
+        $user = Auth::user();
+        if($user->store_id){
+            $products =Product::where('store_id','=',$user->store_id)->paginate();
+        }else{
         $products = Product::paginate();
-        
+        }
         return view('dashboard.products.index',compact('products'));
     }
 
@@ -48,9 +51,12 @@ class ProductsController extends Controller
      */
     public function edit(string $id)
     {
-        
-        $product = Product::findOrFail($id);
-        
+        $user = Auth::user();
+        if($user->store_id){
+            $product =Product::where('store_id','=',$user->store_id)->findOrFail($id);
+        }else{
+        $product = Product::paginate();
+        }
     }
 
     /**
@@ -58,10 +64,7 @@ class ProductsController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $user = Auth::user();
-        if($user->store_id){
-            $products =Product::where('store_id','=',$user->store_id)->paginate();
-        }else{
+        
         $products = Product::findOrFail($id);
         }
     }
