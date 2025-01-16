@@ -18,7 +18,7 @@ class CategoryFactory extends Factory
      */
     public function definition(): array
     {
-        $name = fake()->unique()->department;
+        $name = fake()->department;
         //$name =$this->faker->department;
         return [
             'name' =>$name,

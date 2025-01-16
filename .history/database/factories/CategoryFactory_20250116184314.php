@@ -18,13 +18,15 @@ class CategoryFactory extends Factory
      */
     public function definition(): array
     {
-        $name = fake()->unique()->department;
+        //$name = $this->faker->unique()->department;
         //$name =$this->faker->department;
         return [
-            'name' =>$name,
+            'name' =>fake()->unique()->department,
             'slug' => Str::slug($name),
-            'description' =>$this->faker->paragraph(1),
-            'image' =>$this->faker->imageUrl(),
+            'description' => $this->faker->paragraph(1),
+            'image' => $this->faker->imageUrl(640, 480, 'business', true),
+            'created_at' => $this->faker->dateTimeBetween('-1 year', 'now'),
+            'updated_at' => $this->faker->dateTimeBetween('-1 year', 'now'),
         ];
     }
 }

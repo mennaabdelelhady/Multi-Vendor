@@ -1,13 +1,15 @@
 <?php
 
 namespace Database\Factories;
-//use App\Models\Store;
+
+//use App\Models\Category;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
+use Illuminate\Support\str;
+//use App\Fakers\CategoryProvider;
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Store>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Category>
  */
-class StoreFactory extends Factory
+class CategoryFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -16,14 +18,13 @@ class StoreFactory extends Factory
      */
     public function definition(): array
     {
-        $name =$this->faker->unique()->words(2, true);
+        $name = fake()->department;
+        //$name =$this->faker->department;
         return [
-            'name' => $name,
+            'name' =>$name,
             'slug' => Str::slug($name),
             'description' => $this->faker->paragraph(1),
-            'logo_image' => $this->faker->imageUrl(300,300),
-            'cover_image' => $this->faker->imageUrl(800,600),
-
+            'image' => $this->faker->imageUrl(),
         ];
     }
 }

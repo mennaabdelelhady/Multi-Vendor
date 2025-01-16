@@ -23,8 +23,8 @@ class CategoryFactory extends Factory
         return [
             'name' =>$name,
             'slug' => Str::slug($name),
-            'description' =>$this->faker->paragraph(1),
-            'image' =>$this->faker->imageUrl(),
+            'description' => fake()->paragraph(1),
+            'image' => fake()->imageUrl(),
         ];
     }
 }

@@ -1,13 +1,13 @@
 <?php
 
 namespace Database\Seeders;
-use Faker\Factory as Faker;
+use Faker\Factory;
 use Illuminate\Database\Seeder;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\Store;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Seeder;
 
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -26,10 +26,6 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
         //Store::factory(5)->create();
-        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
-        Category::truncate();
-        Product::truncate();
-        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
         Category::factory(10)->create();
         Product::factory(100)->create();
         //$this->call(UserSeeder::class);
