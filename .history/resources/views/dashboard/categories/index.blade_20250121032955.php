@@ -47,7 +47,6 @@
             <td>{{ $category->id }}</td>
             <td>{{ $category->name }}</td>
             <td>{{ $category->parent? $category->parent->name :'Main Category'}}</td>
-            <td>{{ $category->products_count }}</td>
             <td>{{ $category->status }}</td>
             <td>{{ $category->created_at }}</td>
             <td>

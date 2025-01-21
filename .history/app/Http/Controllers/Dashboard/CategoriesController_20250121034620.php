@@ -37,14 +37,14 @@ class CategoriesController extends Controller
         //->selectRaw('SELECT COUNT(*) FROM products WHERE products.category_id = categories.id AS products_count')
         ->withCount([
             'products'=>function($query){
-                $query->where('status','=','active');
+                $query->where('status','=','active')
 
             }
         ])
         ->filter($request->query())
         ->orderBy('categories.name')
-        ->dd();
-        //->paginate();//return collection object
+        //->dd();
+        ->paginate();//return collection object
         
         return view('dashboard.categories.index',compact('categories'));
     }
@@ -90,11 +90,9 @@ class CategoriesController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Category $category)
+    public function show(string $id)
     {
-        return view('dashboard.categories.show',[
-            'category'=>$category
-        ]);
+        //
     }
 
     /**

@@ -90,11 +90,9 @@ class CategoriesController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Category $category)
+    public function show(string $id)
     {
-        return view('dashboard.categories.show',[
-            'category'=>$category
-        ]);
+        //
     }
 
     /**

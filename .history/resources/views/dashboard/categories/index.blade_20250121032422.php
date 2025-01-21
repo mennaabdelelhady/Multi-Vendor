@@ -34,7 +34,6 @@
             <th>ID</th>
             <th>Name</th>
             <th>Parent</th>
-            <th>Products #</th>
             <th>Status</th>
             <th>Created At</th>
             <th colspan="2"></th>
@@ -47,7 +46,6 @@
             <td>{{ $category->id }}</td>
             <td>{{ $category->name }}</td>
             <td>{{ $category->parent? $category->parent->name :'Main Category'}}</td>
-            <td>{{ $category->products_count }}</td>
             <td>{{ $category->status }}</td>
             <td>{{ $category->created_at }}</td>
             <td>
@@ -65,7 +63,7 @@
         </tr>
         @empty
         <tr>
-            <td colspan="9">No categories defined.</td>
+            <td colspan="8">No categories defined.</td>
         </tr>
         @endforelse
        

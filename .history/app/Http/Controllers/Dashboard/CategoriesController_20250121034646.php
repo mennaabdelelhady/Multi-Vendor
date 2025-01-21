@@ -43,8 +43,8 @@ class CategoriesController extends Controller
         ])
         ->filter($request->query())
         ->orderBy('categories.name')
-        ->dd();
-        //->paginate();//return collection object
+        //->dd();
+        ->paginate();//return collection object
         
         return view('dashboard.categories.index',compact('categories'));
     }
@@ -90,11 +90,9 @@ class CategoriesController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Category $category)
+    public function show(string $id)
     {
-        return view('dashboard.categories.show',[
-            'category'=>$category
-        ]);
+        //
     }
 
     /**
