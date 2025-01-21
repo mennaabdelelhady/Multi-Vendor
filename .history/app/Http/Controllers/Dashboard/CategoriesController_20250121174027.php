@@ -18,10 +18,34 @@ class CategoriesController extends Controller
 {
     /**
      * Display a listing of the resource.
+     * @return  \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $categories = Category::all();//return collection object
+        $request= request();
+
+        //SELECT a.*,b.name AS parent_name 
+        //FROM categories a 
+        //LEFT JOIN categories b ON a.parent_id = b.id;
+        $categories = Category::with('parent')
+        /*leftJoin('categories as parents','parents.id','=','categories.parent_id')
+        ->select([
+            'categories.*',
+            'parents.name as parent_name'
+        ])*/
+        //->select('categories.*')
+        //->selectRaw('SELECT COUNT(*) FROM products WHERE products.category_id = categories.id AS products_count')
+        ->withCount([
+            'products'=>function($query){
+                $query->where('status','=','active');
+
+            }
+        ])
+        ->filter($request->query())
+        ->orderBy('categories.name')
+        //->dd();
+        ->paginate();//return collection object
+        
         return view('dashboard.categories.index',compact('categories'));
     }
 
@@ -66,9 +90,11 @@ class CategoriesController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Category $category)
     {
-        //
+        return view('dashboard.categories.show',[
+            'category'=>$category
+        ]);
     }
 
     /**
@@ -126,12 +152,14 @@ class CategoriesController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Category $category)
     {
-        $category = Category::findOrFail($id);
+        //$category = Category::findOrFail($id);
         $category->delete();
+         
+       
 
-        Category::destroy($id);
+        //Category::destroy($id);
         
         return redirect()->route('dashboard.categories.index')
         ->with('success', 'Category Deleted!');
@@ -155,5 +183,32 @@ class CategoriesController extends Controller
                 return null; // or log error, or handle as needed
             }
            
+    }
+    public function trash(Request $request)
+    {
+        $categories = Category::onlyTrashed()->paginate();
+        return view('dashboard.categories.trash',compact('categories'));
+    }
+
+    public function restore(Request $request,$id)
+    {
+        $category = Category::onlyTrashed()->findOrFail($id);
+        $category->restore();
+
+        return redirect()->route('dashboard.categories.trash')
+             ->with('success', 'Category Restored!');
+    }
+
+    public function forceDelete($id)
+    {
+        $category = Category::onlyTrashed()->findOrFail($id);
+        $category->forceDelete();
+         
+        if($category->image){
+            Storage::disk('public')->delete($category->image);
+        }
+
+        return redirect()->route('dashboard.categories.trash')
+             ->with('success', 'Category Deleted Forever!');
     }
 }
